@@ -34,13 +34,23 @@ public class Estado {
         }
         return "Simbolos o Estado fuera del alfabeto o conjunto";
     }
-    public void crearF(String a, String b, Estado c){
+    public void crearF(String entrada, String salida, Estado nuevoEstado){
         
+        if(entradas.contains(entrada) && salidas.contains(salida) && estados.contains(nuevoEstado)){
+            this.fSalida.put(entrada,salida);
+            this.fEstado.put(entrada,nuevoEstado);
+        }
     }
     public static void estadoInicial(Estado a){
         estadoActual = a;
     }
     public static String funcion(String a){
+        if (estadoActual == null) return "Estado actual no definido";
+        if (!entradas.contains(a)) return "Símbolo fuera del alfabeto";
+        if (!estadoActual.fSalida.containsKey(a) || !estadoActual.fEstado.containsKey(a)) {
+            return "Transición no definida para la entrada: " + a;
+        }
+
         if(entradas.contains(a)){
             String res = estadoActual.fSalida.get(a);
             estadoActual = estadoActual.fEstado.get(a);
