@@ -35,7 +35,10 @@ public class Estado {
         return "Simbolos o Estado fuera del alfabeto o conjunto";
     }
     public void crearF(String a, String b, Estado c){
-        
+        if(entradas.contains(a) && salidas.contains(b) && estados.contains(c)){
+            this.fSalida.put(a,b);
+            this.fEstado.put(a,c);
+        }
     }
     public static void estadoInicial(Estado a){
         estadoActual = a;
