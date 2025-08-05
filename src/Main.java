@@ -94,9 +94,23 @@ public class Main {
                     for (String simbolo : cadena) {
                         // String salidaFSM = Estado.funcion(simbolo);
                         sol.append(Estado.funcion(simbolo));///
-                        System.out.println(sol + " ");///sol
+                        //System.out.println(sol + " ");///sol
                     }
-                    System.out.println();
+                    System.out.println(sol + " ");///sol
+                    
+                    System.out.print("Ingresa el carácter que deseas contar: ");
+                    char caracterBuscado = scanner.next().charAt(0);  // Lee el primer carácter ingresado
+
+                    int contador = 0;
+
+                    for (int i = 0; i < sol.length(); i++) {
+                        if (sol.charAt(i) == caracterBuscado) {
+                            contador++;
+                        }
+                    }
+
+                    System.out.println("Cantidad de sub-cadenas encontradas: " + contador);
+
                     break;
 
                 case "7": // Estado actual
@@ -108,7 +122,12 @@ public class Main {
                     break;
 
                 case "8": // Graficar FSM (placeholder)
-                    System.out.println("[✔️] Funcionalidad de graficación aún no implementada.");
+                    if (Estado.estados.isEmpty()) {
+                        System.out.println("No hay estados creados todavía.");
+                    } else {
+                        System.out.println("Abriendo ventana con el grafo...");
+                        PanelGrafo.mostrar(new ArrayList<>(Estado.estados), Estado.estadoActual);
+                    }
                     break;
 
                 case "9": // Salir

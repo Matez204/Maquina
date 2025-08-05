@@ -54,7 +54,7 @@ public class Estado {
         if(entradas.contains(a)){
             String res = estadoActual.fSalida.get(a);
             estadoActual = estadoActual.fEstado.get(a);
-            System.out.println(res);
+            //System.out.println(res);
             return res;
         }
         return "Simbolo fuera del alfabeto";
