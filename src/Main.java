@@ -122,12 +122,9 @@ public class Main {
                     break;
 
                 case "8": // Graficar FSM (placeholder)
-                    if (Estado.estados.isEmpty()) {
-                        System.out.println("No hay estados creados todavía.");
-                    } else {
-                        System.out.println("Abriendo ventana con el grafo...");
-                        PanelGrafo.mostrar(new ArrayList<>(Estado.estados), Estado.estadoActual);
-                    }
+                    
+                        System.out.println("no hay logica asociada todavia!!!!!!!!!!");
+                    
                     break;
 
                 case "9": // Salir
